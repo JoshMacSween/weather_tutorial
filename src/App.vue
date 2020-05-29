@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ?
+    'warm' : ''">
     <main>
       <div class="search-box">
         <input type="text" class="search-bar" placeholder="search..."
@@ -82,6 +83,10 @@ export default {
     transition: 0.4s;
   }
 
+  #app.warm {
+    background-image: url('./assets/warm.jpg');
+  }
+
   main {
     min-height: 100vh;
     padding: 25px;
@@ -157,5 +162,7 @@ export default {
     font-style: italic;
     text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
   }
+
+
 </style>
 
